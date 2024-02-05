@@ -1,6 +1,43 @@
 
 const container = document.querySelector(".container");
 const palette = document.querySelector(".palette");
+const generateBtn = document.querySelector("#generate");
+const input = document.querySelector("#input");
+
+let numberOfGrids = 0;
+
+generateBtn.addEventListener("click", () => {
+    if(numberOfGrids == 0){
+        let inputValue = Math.floor(input.value);
+        if(inputValue > 100 || inputValue < 1) {
+            alert("Number of squares per side is from 1 to 100.");
+        } else {
+            numberOfGrids = +inputValue;
+            makeGrid();
+        }    
+    } else {
+        numberOfGrids = 0;             // RESETING THE GRID DOESN'T WORK
+    }
+});    
+
+
+function makeGrid() {
+    for(let i = 1; i <= numberOfGrids; i++) {
+        const squareW = document.createElement("div");
+        squareW.className = "width";
+        container.appendChild(squareW);
+        for(let j = 1; j <= numberOfGrids; j++){
+            const squareH = document.createElement("div");
+            squareH.className = "squares";
+            squareW.appendChild(squareH);
+
+            squareH.addEventListener("mouseover", () => {
+                squareH.style.backgroundColor = colorPicked;
+                squareH.style.borderColor = colorPicked;
+            });
+        }
+    }
+}
 
 let colorPicked = "white"
 
@@ -51,19 +88,3 @@ aquamarine.addEventListener("click", () => {colorPicked = aquamarine.style.backg
 chartreuse.addEventListener("click", () => {colorPicked = chartreuse.style.backgroundColor});
 orangered.addEventListener("click", () => {colorPicked = orangered.style.backgroundColor});
 white.addEventListener("click", () => {colorPicked = white.style.backgroundColor});
-
-
-for(let i = 1; i <= 16; i++) {
-    const squareW = document.createElement("div");
-    container.appendChild(squareW);
-    for(let j = 1; j <= 16; j++){
-        const squareH = document.createElement("div");
-        squareH.className = "squares";
-        squareW.appendChild(squareH);
-
-        squareH.addEventListener("mouseover", () => {
-            squareH.style.backgroundColor = colorPicked;
-            squareH.style.borderColor = colorPicked;
-        });
-    }
-}

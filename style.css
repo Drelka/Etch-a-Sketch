@@ -1,32 +1,65 @@
+
+
 body {
-display: flex;
-justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#mainContainer {
+    display: flex;
+    width: 1500px;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.form {
+    display: flex;
+    height: 50px;
+    padding: 20px;
+}
+
+#input {
+    text-align: center;
+    font-size: large;
+    width: 80px;
 }
 
 #color-10 {
-    border: solid grey 1px;
+    border: double rgb(228, 228, 228) 5px;
 }
 
-.colors:nth-child(even) {
-    margin-left: 30px;
-}
 
 .colors {
-border-radius: 50%;
-border: white double 5px;
-width: 50px;
-height: 50px;   
+    margin-left: 50px;
+    border-radius: 50%;
+    border: white double 5px;
+    width: 3rem;
+    height: 3rem;   
 }
 
-div.container {
+/* GRID CONTTAINER */
+
+.container {
     display: flex;
-    margin-top: 50px;
+    width: 750px;
+    height: 750px;
+    flex-direction: row;
+    align-content: center;
+}
+
+.width {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .squares {
+    flex: 1 1 auto;
     border: solid rgb(192, 190, 190) 1px;
-    width: 50px;
-    height: 50px;
 }
 
 .H:hover{
@@ -34,8 +67,10 @@ div.container {
 }
 
 .palette {
-    margin-left: 50px;
-    margin-top: auto;
-    margin-bottom: auto;
+    align-self: center;
 }
 
+#gridPlusPalette {
+    display: flex;
+    flex-direction: row;
+}

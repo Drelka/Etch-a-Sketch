@@ -6,18 +6,24 @@ const input = document.querySelector("#input");
 
 let numberOfGrids = 0;
 
+function setNumberOfGrids() {
+        let inputValue = Math.floor(input.value);
+    if(inputValue > 100 || inputValue < 1) {
+        alert("Number of squares per side is from 1 to 100.");
+    } else {
+        numberOfGrids = +inputValue;
+        makeGrid();
+    }    
+}
+
 generateBtn.addEventListener("click", () => {
     if(numberOfGrids == 0){
-        let inputValue = Math.floor(input.value);
-        if(inputValue > 100 || inputValue < 1) {
-            alert("Number of squares per side is from 1 to 100.");
-        } else {
-            numberOfGrids = +inputValue;
-            makeGrid();
-        }    
+        setNumberOfGrids();
     } else {
-        numberOfGrids = 0;             // RESETING THE GRID DOESN'T WORK
+        container.innerHTML = "";
+        setNumberOfGrids();
     }
+    console.log(numberOfGrids);
 });    
 
 

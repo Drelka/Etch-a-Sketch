@@ -5,6 +5,7 @@ const generateBtn = document.querySelector("#generate");
 const input = document.querySelector("#input");
 
 let numberOfGrids = 0;
+let colorPicked = "pink";
 
 function setNumberOfGrids() {
         let inputValue = Math.floor(input.value);
@@ -23,9 +24,7 @@ generateBtn.addEventListener("click", () => {
         container.innerHTML = "";
         setNumberOfGrids();
     }
-    console.log(numberOfGrids);
 });    
-
 
 function makeGrid() {
     for(let i = 1; i <= numberOfGrids; i++) {
@@ -36,16 +35,36 @@ function makeGrid() {
             const squareH = document.createElement("div");
             squareH.className = "squares";
             squareW.appendChild(squareH);
-
             squareH.addEventListener("mouseover", () => {
-                squareH.style.backgroundColor = colorPicked;
-                squareH.style.borderColor = colorPicked;
-            });
+                if (colorPicked != document.querySelector("#color-10")) {
+                    squareH.style.backgroundColor = colorPicked;
+                    squareH.style.borderColor = colorPicked;
+                } else {
+                    squareH.style.backgroundColor = colorPicked;
+                    squareH.style.borderColor = colorPicked;
+                    // for (let i = 0; i < 10; i++) {
+                    //     let x = 0.1;
+                    //     if (colorPicked.charAt(colorPicked.length -3) !== ".") {
+                    //         colorPicked += colorPicked.slice(0, -2) + `${x})`;
+                    //     } else if (colorPicked.charAt(colorPicked.length -3) === ".") {
+                    //         colorPicked += colorPicked.slice(0, -4) + `${x})`;
+                    //         if (colorPicked.charAt(colorPicked.length -4) == "1") {
+                    //             break;
+                    //         };
+                    //     }
+                    // }
+                }
+        });
         }
     }
 }
 
-let colorPicked = "white"
+function random255(){
+    return Math.floor(Math.random() * 255 + 1);
+}
+function randomColor(){
+    return colorPicked = `rgba(${random255()}, ${random255()}, ${random255()}, 1)`;
+}
 
 let idName = 0;
 function idNames() {
@@ -71,7 +90,9 @@ const bisque = document.querySelector("#color-6");
 const aquamarine = document.querySelector("#color-7");
 const chartreuse = document.querySelector("#color-8");
 const orangered = document.querySelector("#color-9");
-const white = document.querySelector("#color-10");
+const random = document.querySelector("#color-10");
+
+const rndm = document.createElement("div");
 
 darkslateblue.style.backgroundColor = "darkslateblue";
 royalblue.style.backgroundColor = "royalblue";
@@ -82,15 +103,25 @@ bisque.style.backgroundColor = "bisque";
 aquamarine.style.backgroundColor = "aquamarine";
 chartreuse.style.backgroundColor = "chartreuse";
 orangered.style.backgroundColor = "orangered";
-white.style.backgroundColor = "white";
 
-darkslateblue.addEventListener("click", () => {colorPicked = darkslateblue.style.backgroundColor});
-royalblue.addEventListener("click", () => {colorPicked = royalblue.style.backgroundColor});
-deeppink.addEventListener("click", () => {colorPicked = deeppink.style.backgroundColor});
-yellow.addEventListener("click", () => {colorPicked = yellow.style.backgroundColor});
-springgreen.addEventListener("click", () => {colorPicked = springgreen.style.backgroundColor});
-bisque.addEventListener("click", () => {colorPicked = bisque.style.backgroundColor});
-aquamarine.addEventListener("click", () => {colorPicked = aquamarine.style.backgroundColor});
-chartreuse.addEventListener("click", () => {colorPicked = chartreuse.style.backgroundColor});
-orangered.addEventListener("click", () => {colorPicked = orangered.style.backgroundColor});
-white.addEventListener("click", () => {colorPicked = white.style.backgroundColor});
+random.appendChild(rndm);
+rndm.textContent =  "Rndm";
+random.style.cssText = "display: flex;"
+                     + "align-items: center;"
+                     + "justify-content: center;"
+                     + "color: yellow;"
+                     + "background-color: grey;"
+                     + "border: double blue 5px";
+
+darkslateblue.addEventListener("click", () => {colorPicked = darkslateblue.style.backgroundColor;});
+royalblue.addEventListener("click", () => {colorPicked = royalblue.style.backgroundColor;});
+deeppink.addEventListener("click", () => {colorPicked = deeppink.style.backgroundColor;});
+yellow.addEventListener("click", () => {colorPicked = yellow.style.backgroundColor;});
+springgreen.addEventListener("click", () => {colorPicked = springgreen.style.backgroundColor;});
+bisque.addEventListener("click", () => {colorPicked = bisque.style.backgroundColor;});
+aquamarine.addEventListener("click", () => {colorPicked = aquamarine.style.backgroundColor;});
+chartreuse.addEventListener("click", () => {colorPicked = chartreuse.style.backgroundColor;});
+orangered.addEventListener("click", () => {colorPicked = orangered.style.backgroundColor;});
+random.addEventListener("click", () => {
+    colorPicked = randomColor();
+});

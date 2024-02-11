@@ -4,6 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(16, 82, 102, 0.863);
 }
 
 #mainContainer {
@@ -27,11 +28,6 @@ p {
     font-size: large;
     width: 80px;
 }
-
-#color-10 {
-    border: double rgb(228, 228, 228) 5px;
-}
-
 
 .colors {
     margin-left: 50px;
@@ -68,6 +64,8 @@ p {
 
 .palette {
     align-self: center;
+    display: flex;
+    flex-direction: column;
 }
 
 #gridPlusPalette {

@@ -1,4 +1,3 @@
-
 const container = document.querySelector(".container");
 const palette = document.querySelector(".palette");
 const generateBtn = document.querySelector("#generate");
@@ -42,17 +41,6 @@ function makeGrid() {
                 } else {
                     squareH.style.backgroundColor = colorPicked;
                     squareH.style.borderColor = colorPicked;
-                    // for (let i = 0; i < 10; i++) {
-                    //     let x = 0.1;
-                    //     if (colorPicked.charAt(colorPicked.length -3) !== ".") {
-                    //         colorPicked += colorPicked.slice(0, -2) + `${x})`;
-                    //     } else if (colorPicked.charAt(colorPicked.length -3) === ".") {
-                    //         colorPicked += colorPicked.slice(0, -4) + `${x})`;
-                    //         if (colorPicked.charAt(colorPicked.length -4) == "1") {
-                    //             break;
-                    //         };
-                    //     }
-                    // }
                 }
         });
         }
